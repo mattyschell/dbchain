@@ -14,26 +14,51 @@ geometries into something a little more cartographically presentable and
 generally more pleasant to deal with than the original collection of tiny
 segments.
 
+There's probably already a tool that does this and I just don't know what combo
+of words (join? dissolve?) will duckduckgo it.  This is similar:
+
+https://github.com/ArMoraer/QGISMergeLines
+
+
 
 ## Dependencies
 
-* PostGIS database with a schema to write scratch datasets
-* Executable on path for psql    
-* Bash, MingW or similar prompt
+* PostGIS database with connection to write scratch datasets
+* Executable on path for psql (usually comes with PostgreSQL)
+* Executable on path for shp2pgsql (usually comes with PostGIS, QGIS, etc)  
+* Bash, MingW or similar shell
 
 
 ## Test
 
-./dbchain-test.sh
+Externalize all connection details so that a call to the psql executable 
+connects to the PostGIS-enabled database and user with write privileges.
 
+An unnecessarily verbose full sample:
 
-## Sample Usage
+```
+$ export PGUSER=dbchaintester
+$ export PGPASSWORD=postmanmushroomsquirrel
+$ export PGDATABASE=dbchaintest
+$ export PGPORT=5433
+$ psql
+psql (10.6)
+
+dbchaintest=> \q
+
+$ ./dbchain-test.sh
+```
+
+## Sample Usage: Shapefile Input And Output
 
 ### Simplify at 5 units of the datasets coordinate reference system
 
-./dbchain inputtable "hoverboard,pavegold" 5 outputtable
+```
+./dbchain inputshapefile "hoverboard,pavegold" 5 outputshapefile
+```
 
 ### Do not simplify, only chain on hoverboard flag
 
-./dbchain inputtable hoverboard 0 outputtable
- 
+```
+./dbchain inputshapefile hoverboard 0 outputshapefile
+ ```

@@ -16,9 +16,9 @@ create table dbchaintestdata (
    ,junkcol         text
    ,shape           geometry(linestring, 2263));
 create index dbchaintestdatashape on dbchaintestdata using GIST(shape);
-create table dbchaintestexpected (
-    id              integer primary key
-   ,hoverboard      varchar(1)
-   ,pavegold        integer
-   ,shape           geometry(linestring, 2263));
+--create table dbchaintestexpected (
+--    id              integer primary key
+--   ,hoverboard      varchar(1)
+--   ,pavegold        integer
+--   ,shape           geometry(linestring, 2263));
 
