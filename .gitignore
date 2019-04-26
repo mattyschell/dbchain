@@ -137,13 +137,14 @@ generated/
 log/
 logs/
 
-#npm
+# npm
 node_modules/
 
 # mschell scratch dir with the launch codes
 scratch/
 
-.gradle/
-
-#python
+# compiled python 
 *.pyc
+
+# this repo test output shapefolder
+*testoutput.*
