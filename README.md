@@ -49,18 +49,22 @@ dbchaintest=> \q
 $ ./dbchain-test.sh
 ```
 
-## Sample Usage: Shapefile Input And Output
+## Usage: Shapefile Input And Output
 
-### Simplify at 10 units of the datasets' coordinate reference system
+```
+./dbchain.sh InputShapefile ChainingColumns SimplifyThreshhold OutputShapefile [SpatialReferenceId]
+```
+
+### Sample Usage: Simplify at 10 units (feet) of default spatial reference 2263
 
 ```
 ./dbchain.sh /d/data/inshapefile.shp "hoverboard,pavegold" 10 /d/data/outshapefile.shp
 ```
 
-### Do not simplify, only chain on hoverboard flag
+### Sample Usage: Do not simplify, only chain on hoverboard flag, srid is 4326
 
 ```
-./dbchain.sh /d/data/inshapefile.shp hoverboard 0 /d/data/outshapefile.shp
+./dbchain.sh /d/data/inshapefile.shp hoverboard 0 /d/data/outshapefile.shp 4326
  ```
 
 ## Back of The Readme Envelope Simplification Suggestions
