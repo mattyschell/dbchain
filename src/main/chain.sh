@@ -1,3 +1,4 @@
+#!/bin/bash
 # 1) ST_UNION: Aggregate all geoms in the GROUP BY set.  
 #              Typically produces multilinestrings with many disjoint strings.
 #              The possibility of intersecting lines precludes faster st_collect. 

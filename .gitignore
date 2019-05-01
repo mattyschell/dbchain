@@ -145,6 +145,3 @@ scratch/
 
 # compiled python 
 *.pyc
-
-# this repo test output shapefolder
-*testoutput.*
